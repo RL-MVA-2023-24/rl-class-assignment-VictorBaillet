@@ -1,0 +1,31 @@
+method: bayes
+    
+metric : 
+    name: score_agent_dr
+    goal: maximize   
+
+parameters :
+    learning_rate:
+        distribution: log_uniform_values
+        min: 0.001
+        max: 0.01
+    epsilon_min:
+        min: 0.02
+        max: 0.08
+        distribution: uniform
+    epsilon_decay_period:
+        min: 10000
+        max: 30000
+        distribution: int_uniform
+    gradient_steps:
+        min: 5
+        max: 10
+        distribution: int_uniform
+    update_target_freq:
+        min: 400
+        max: 1000
+        distribution: int_uniform
+    gamma:
+        min: 0.95
+        max: 1.0
+        distribution: uniform

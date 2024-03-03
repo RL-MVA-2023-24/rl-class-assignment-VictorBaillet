@@ -1,0 +1,12 @@
+learning_rate: 0.002429
+gamma: 0.98
+buffer_size: 100000
+epsilon_min: 0.04959
+epsilon_max: 1.
+epsilon_decay_period: 21253
+epsilon_delay_decay: 54
+batch_size: 800
+gradient_steps: 5
+update_target_strategy: "replace"
+update_target_freq: 586
+update_target_tau: 0.005
