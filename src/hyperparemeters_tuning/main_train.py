@@ -23,7 +23,7 @@ def seed_everything(seed: int = 42):
 if __name__ == "__main__":
     seed_everything(seed=42)
     # Initialization of the agent. Replace DummyAgent with your custom agent implementation.
-    agent_config_path = os.path.join('src/config/best_1.yaml')
+    agent_config_path = os.path.join('src/config/best_5.yaml')
     
     with open(agent_config_path) as f:
         agent_config_dict = yaml.load(f, Loader=yaml.FullLoader)

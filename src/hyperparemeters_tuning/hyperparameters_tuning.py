@@ -30,7 +30,8 @@ def compute_train_function(agent_config_dict):
 
             agent = ProjectAgent()
             agent.train(config_dict)
-            agent.load()
+            #agent.load()
+            seed_everything(seed=42)
             score_agent: float = evaluate_HIV(agent=agent, nb_episode=1)
             score_agent_dr: float = evaluate_HIV_population(agent=agent, nb_episode=15)
 
@@ -53,8 +54,8 @@ def update_config(config_dict, config):
 if __name__ == "__main__":
     seed_everything(seed=42)
     # Initialization of the agent. Replace DummyAgent with your custom agent implementation.
-    agent_config_path = os.path.join('src/config/agent.yaml')
-    sweep_config_path = os.path.join('src/config/sweep-easy.yaml')
+    agent_config_path = os.path.join('src/config/init_agent.yaml')
+    sweep_config_path = os.path.join('src/config/sweep.yaml')
     
     with open(agent_config_path) as f:
         agent_config_dict = yaml.load(f, Loader=yaml.FullLoader)
@@ -65,6 +66,7 @@ if __name__ == "__main__":
 
     train = compute_train_function(agent_config_dict)
 
+    #wandb.agent(sweep_id, train, count=100)
     wandb.agent(sweep_id, train, count=100)
     
     #with open(file="score.txt", mode="w") as f:
